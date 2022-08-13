@@ -61,7 +61,7 @@ fn main() {
     };
 
     let mut turn: u8 = 0;
-    let mut tie = false;
+    let mut tie = true;
 
     while turn < 9 {
         let mut input = String::new();
