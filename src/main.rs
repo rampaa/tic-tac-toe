@@ -66,6 +66,12 @@ fn main() {
     while turn < 9 {
         let mut input = String::new();
         println!("{}", board);
+        let current_mark = if turn % 2 == 0 {
+            SlotState::X
+        } else {
+            SlotState::O
+        };
+        println!("It's {}'s turn", current_mark);
         println!("Please enter a number between 1 and 9:");
         stdin().read_line(&mut input).unwrap_or_default();
         let parsed_number = input.trim().parse::<usize>().unwrap_or_default();
@@ -73,12 +79,6 @@ fn main() {
         match parsed_number {
             1..=9 => match board.board_state[parsed_number - 1] {
                 SlotState::Empty => {
-                    let current_mark = if turn % 2 == 0 {
-                        SlotState::X
-                    } else {
-                        SlotState::O
-                    };
-
                     board.board_state[parsed_number - 1] = current_mark;
 
                     if check_win(&board.board_state) {
