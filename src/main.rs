@@ -41,7 +41,7 @@ impl fmt::Display for Board {
 }
 
 fn check_win(board_state: &[SlotState; 9]) -> bool {
-    return (board_state[0] != SlotState::Empty
+    (board_state[0] != SlotState::Empty
         && ((board_state[0] == board_state[1] && board_state[1] == board_state[2])
             || (board_state[0] == board_state[4] && board_state[4] == board_state[8])
             || (board_state[0] == board_state[3] && (board_state[3] == board_state[6]))))
@@ -52,7 +52,7 @@ fn check_win(board_state: &[SlotState; 9]) -> bool {
             && ((board_state[5] == board_state[4] && board_state[4] == board_state[3])
                 || (board_state[2] == board_state[5] && board_state[5] == board_state[8])))
         || (board_state[1] != SlotState::Empty
-            && (board_state[1] == board_state[4] && board_state[4] == board_state[7]));
+            && (board_state[1] == board_state[4] && board_state[4] == board_state[7]))
 }
 
 fn main() {
